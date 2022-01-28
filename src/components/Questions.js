@@ -17,9 +17,10 @@ const Questions = () => {
     
     
     useEffect(() => {
-        console.log(endPoint+"category/"+id+"/questions");
+        //console.log(endPoint+"category/"+id+"/questions");
         getQuestions();
         
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
     
     
