@@ -74,7 +74,8 @@ padding:20px;
 font-size:30px;
 
 `
-const ButtonGoogle = styled.button`
+const ButtonGoogle = styled.button
+`
 
 background:#EF4565;
 border-radius: 5px;
