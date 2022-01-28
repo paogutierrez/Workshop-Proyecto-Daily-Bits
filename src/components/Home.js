@@ -2,6 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { CategoryContainer, HomeContainer, LinkCategory, SecondCategoryContainer } from '../styles/HomeStyle';
+import Footer from './Footer';
 
 const Home = () => {
     
@@ -29,7 +30,9 @@ const Home = () => {
                         </Link>                        
                     </LinkCategory>
                 </SecondCategoryContainer>
+                <Footer/>
             </CategoryContainer>
+            
         </HomeContainer>;
 };
 

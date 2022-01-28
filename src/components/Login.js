@@ -1,34 +1,49 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { endPoint } from "../helpers/Url";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export const Login = () => {
   const [user, setUser] = useState({
     email: "",
-    pasword: "",
+    password: ""
   });
 
   const [ validacion, setValidacion] = useState([])
+  const navigate = useNavigate();
 
-
-  const { email, password } = user;
+  useEffect(() => {
+    postData()
+  }, []);
+  
 
   const postData = () => {
-
     axios.get(endPoint +'user')
       .then((response) => 
         setValidacion(response.data)
       )
       .catch((error) => console.log(error));
+    
   };
 
-  const handleChanged = ({ target }) => {
+  const validar = () => {
+    //console.log(user.email);
+    const verificar = validacion.find(users => users.email === user.email)
+
+    if(verificar){
+      verificar.password === user.password ?  navigate('/home', { replace: true }): alert("Contraseña Incorrecta")
+    }else{
+      alert("Usuario no registrado");
+    }
+  }
+
+  const handleChanged = (e) => {
     setUser({
       ...user,
-      [target.email]: target.value,
+      [e.target.name]: e.target.value,
     });
+    console.log(user);
   };
 
   const handleSubmit = (e) => {
@@ -52,7 +67,7 @@ export const Login = () => {
             id="inputEmail"
             placeholder="Ingrese su correo electronico"
             name="email"
-            
+            type="email"
             onChange={handleChanged}
           />
         </Div>
@@ -62,7 +77,6 @@ export const Login = () => {
             placeholder="Ingrese su contraseña"
             type="password"
             name="password"
-            
             onChange={handleChanged}
           />
         </Div>
@@ -72,7 +86,7 @@ export const Login = () => {
             <Linka>Inscribirse</Linka>
         </div>
         <Div>
-          <ButtonLogin onClick={() => postData({user})} id="entryLogin">
+          <ButtonLogin onClick={() => validar()} id="entryLogin">
             Login
           </ButtonLogin>
         </Div>

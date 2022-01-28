@@ -1,5 +1,6 @@
 import React from 'react';
 import {EstadisticaContainer, H1, Select, Div, Label, Contador, Correcto, Incorrecto, Icon} from '../styles/EstadisticaStyled'
+import Footer from './Footer';
 
 const Estadistica = () => {
 
@@ -48,7 +49,7 @@ const Estadistica = () => {
             </Div>
         </main>
 
-
+        <Footer/>
   </EstadisticaContainer>;
 };
 

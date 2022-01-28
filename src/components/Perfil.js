@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {PerfilContainer, H1, Div, DivImg, Img, Nombre, Email, Btn} from '../styles/PerfilStyled'
+import Footer from './Footer';
 
 export default class Perfil extends Component {
   render() {
@@ -14,6 +15,7 @@ export default class Perfil extends Component {
           <Email>juan@gmail.com</Email> <br/>
         </Div>
         <Btn>Cerrar sesión</Btn>
+        <Footer/>
     </PerfilContainer>;
   }
 }
